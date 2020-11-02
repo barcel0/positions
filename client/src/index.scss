@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
+
+//SASS
+$color-main: #37517e;
+$color-secondary: #00a4df;
+$color-terciary: #fcb22d;
+$color-bg: #f3f7f7;
+$color-subheader: rgba(0, 0, 0, 0.85);
+$color-green: #6cce29;
+$color-red: #fa2750;
+$color-light: white;
+$color-light-grey:#dadada;
+
+%align-center-h{display: flex;justify-content: center;}
+%align-center-v{display: flex;align-items: center;}
+%align-center-hv{display: flex;justify-content: center;align-items: center;}
+%transition-main{transition: all 0.2s ease-in;}
+
+//ELEMENTS
+html{scroll-behavior: smooth;}
+body{
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  font-family: 'Open Sans','Roboto', sans-serif;
+  background-color: $color-bg;
+  color: $color-main;
+
+}
+a{
+  text-decoration: none;
+  color: $color-main;
+}
+header{
+  overflow: hidden;
+  height: 50px;
+  background-color: $color-subheader;
+  color: white;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+header a{
+  @extend %align-center-hv;
+  color: $color-light;
+}
+
+nav{
+  @extend %align-center-hv;
+  margin-top: 50px;
+  height: 30px;
+  font-size: 0.8rem;
+  background-color: $color-main;
+  color: $color-light;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section{
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer{
+  @extend %align-center-hv;
+  background-color: $color-main;
+  font-size: 0.8rem;
+  margin-top: 30px;
+  height: 50px;
+  color: white;
+}
+
+//CLASSES - SHARED
+.title{font-size: 1.2rem;margin-left: 5px; font-weight: 500}
+
+.btn{
+  @extend %align-center-hv;
+  font-size: 0.8rem;
+  padding: 0px 10px;
+  margin: 5px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid $color-light-grey;
+  color: $color-light-grey;
+}
+
+.btn-active{
+  background-color: $color-main;
+  border: 1px solid $color-main;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-unactive{
+  @extend %transition-main;
+  background-color: $color-light;
+  border: 1px solid $color-main;
+  color: $color-main;
+  cursor: pointer;
+}
+
+.btn-unactive:hover{
+  background-color: $color-secondary;
+  color: $color-light;
+  border: 1px solid $color-secondary;
+}
+
+.btn-deactivated{
+  background-color: $color-light;
+  border: 1px solid $color-light-grey;
+  color: $color-light-grey;
+  cursor: not-allowed;
+}
+
+.box-white{
+  @extend %align-center-h;
+  background-color: white;
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.15);
+  padding: 0.8rem;
+  margin-top: 5px;
+}
+
+.box-header{
+  width: 100%;
+  border-bottom: 1px solid $color-light-grey;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.box-footer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+  font-size:0.8rem;
+}
+
+.box-title{
+  @extend  %align-center-v;
+}
+.box-title h2{
+  font-size: 1.05rem;
+  margin: 5px;
+}
+
+.box-filters{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.column-layout{
+  display: flex;
+  flex-direction: column;
+}
+//CLASSES - MAIN
+.search-container{
+  width:100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-left: 5px;
+}
+.search-container input{
+  @extend %transition-main;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 5px;
+  margin: 0 10px;
+  background: transparent;
+}
+.search-container input:focus{
+  color: $color-secondary;
+}
+
+.clear-search-bar{
+  @extend %transition-main;
+  cursor: pointer;
+  color: $color-main;
+}
+.clear-search-bar:hover{color: $color-secondary}
+
+.contract-list{
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+.contract-list li{
+  @extend %transition-main;
+  cursor: pointer;
+  margin: 2px;
+  padding: 5px 10px;
+}
+.contract-list li{
+  cursor: pointer;
+  margin: 2px;
+  padding: 4px 10px;
+}
+
+.contract-list li:hover{
+  color: $color-secondary;
+  font-weight: 600;
+}
+.contract-list-item{
+  display: flex;
+  border-bottom: 1px solid $color-light-grey;
+}
+
+.contract-list-item-header{
+  @extend %align-center-v;
+  width: 65%;
+  min-width: 600px;
+  font-weight: 600;
+}
+
+.contract-list-item-header h3{
+  font-size: 1em;
+  margin: 0 5px;
+}
+
+.contract-list-item-data {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contract-list-item-data span{
+  width: 100%;
+  margin: 0 5px;
+}
+
+.contract-list-item-data-header{font-weight: 600;}
+
+.load-more-btn{
+  @extend %align-center-hv;
+  @extend %transition-main;
+  border: 1px solid $color-main;
+  border-radius: 3px;
+  font-weight: 600;
+  color: $color-main;
+  font-size: 0.9rem;
+  padding: 5px 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.load-more-btn:hover{
+  background-color: $color-terciary;
+  border: 1px solid $color-terciary;
+  color: $color-light;
+}
+
+.load-more-btn span{
+  margin-left: 10px;
+}
+
+//CLASSES - CONTRACT
+.contract-header{
+  height: 80px;
+  display: flex;
+  flex-wrap: nowrap;
+  background: white;
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.15);
+}
+.contract-header-icon{
+  @extend %align-center-hv;
+  background-color: $color-terciary;
+  width: 80px;
+}
+.contract-header-content{
+  margin: 10px;
+  width: 100%;
+}
+.contract-header-main-row{
+  border-bottom: 1px solid $color-light-grey;
+}
+.contract-header h1{
+  font-size: 1.2rem;
+  margin: 0px 0px 5px 0px;
+}
+
+.contract-body{
+  width: 100%;
+  max-width: 1200px;
+}
+
+.trader-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+
+.trader-card{
+  flex-grow: 1;
+  min-width: 200px;
+  max-width: 210px;
+  margin: 0px 10px;
+  font-size: 0.8rem;
+}
+
+.trader-chart{
+  height: 120px; //temp
+  @extend %align-center-hv;
+  border-bottom: 1px solid $color-light-grey;
+}
+
+.trader-card-title{
+  @extend %align-center-hv;
+}
+.trader-card-title span{
+  @extend %align-center-hv;
+  margin-left: 5px;
+}
+
+.trader-card h3{
+  margin:5px 0px;
+  text-align: center;
+}
+
+.trader-card h4{
+  margin:0;
+  border-bottom: 1px solid $color-light-grey;
+}
+
+.trader-data-section{
+  margin: 5px 0px;
+}
+.trader-data-section li{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-light-grey;
+}
+.data-positive{color: $color-green;}
+.data-negative{color: $color-red;}
+
+.trader-filter{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 0px;
+  font-size: 0.8rem;
+}
+
+.trader-filter-option{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0px 5px;
+  font-weight: 600; 
+}
+.trader-filter-option:hover{color: $color-secondary;}
+.trader-filter-option input, .trader-filter-option label{cursor: pointer;}
+
+.historical-data-section h3{
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.historical-data-chart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-md{width: 100%;height: 400px;}
+.chart-sm{width: 100%;height: 200px;}
+
+//more
+.narrow-form{
+  @extend %align-center-hv;
+  flex-direction: column;
+}
+.narrow-form input{
+  border: 1px solid lightgray;
+  outline: 0;
+  margin: 5px;
+}
+
+.parser-container{
+  margin-top: 10px;}
+
+.parser-container h3{
+  font-size: 0.9rem;
+  margin: 10px 0 0 0;
+}
+
+.parser-container form{display: flex;flex-direction: column;}
+
+.parser-container input{
+  margin: 5px 0;
+  border: 0;
+  outline: 0;
+  font-size: 1.2rem;
+  padding: 5px;
+}
+
+.parser-container textarea{
+  font-size: 0.75rem;
+  border: 1px solid $color-light-grey;
+  margin-top: 5px;
+}
+
+.data-url-submit{
+  @extend %transition-main;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.data-url-submit:hover{background-color:$color-secondary;color: white;}
+
+.tooltip{
+  width: 400px;
+  text-align: center;
+}
+
+
+//Loading spinner
+.spinner {
+  margin: 100px auto;
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: $color-secondary;
+  height: 100%;
+  width: 6px;
+  margin: 0 2px;
+  display: inline-block;
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
